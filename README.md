@@ -10,7 +10,7 @@ Download from http://example.com/FIXME.
 
 FIXME: explanation
 
-    $ java -jar usaspending-etl-0.1.0-standalone.jar [args]
+	$ java -jar usaspending-etl-0.1.0-standalone.jar [args]
 
 ## Options
 
