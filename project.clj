@@ -1,4 +1,5 @@
 (defproject usaspending-etl "0.1.0-SNAPSHOT"
+  :uberjar-name "app-standalone.jar"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
