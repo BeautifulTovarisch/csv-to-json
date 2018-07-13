@@ -7,6 +7,6 @@
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/data.csv "0.1.4"]]
                  
-  :main ^:skip-aot usaspending-etl.core
+  :main ^:skip-aot csv-to-json.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

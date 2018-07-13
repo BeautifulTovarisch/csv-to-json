@@ -1,4 +1,4 @@
-(ns usaspending-etl.core
+(ns csv-to-json.core
   (:gen-class))
 
 (defn -main

@@ -1,4 +1,4 @@
-(ns usaspending-etl.csv-reader
+(ns csv-to-json.csv-reader
   (:gen-class)
   (:require [clojure.java.io :as io]
             [clojure.data.csv :as csv]
