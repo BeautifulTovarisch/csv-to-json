@@ -5,30 +5,31 @@
             [cheshire.core :refer [generate-stream
                                    generate-string] :as json ]))
 
-(defn format-post [documents]
-  (json/generate-string { :docs documents }))
-
+;; read-csv :: io/reader -> Sequence
 (defn read-csv [reader]
   (csv/read-csv reader))
 
-(defn row->map [data]
+;; row-to-map :: Sequence -> Sequence( Map )
+(defn row-to-map [data]
   (map #(zipmap (first data) %) (rest data)))
 
-(defn rows->json [data]
+;; rows-to-json :: Sequence( Map ) -> Sequence( String )
+(defn rows-to-json [data]
   (map json/generate-string data))
 
+;; write-json ( String, Sequence( String ) ) -> BufferedWriter
+;; Writes JSON object to disk lazily
 (defn write-json [dest json]
   (generate-stream json (io/writer dest)))
 
-(defn csv->json
+(defn csv-to-json
   ([source]
-   (csv->json source (clojure.string/replace source #".csv" ".json")))
+   (csv-to-json source (clojure.string/replace source #".csv" ".json")))
 
   ([source dest]
   (with-open [reader (io/reader source)
               writer (io/writer dest)]
     (->> (read-csv reader)
-         (row->map)
-         (rows->json)
-         (format-post)
+         (row-to-map)
+         (rows-to-json)
          (write-json dest)))))
